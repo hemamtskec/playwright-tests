@@ -1,0 +1,17 @@
+{
+  "username": "rmgyantra",
+  "password": "rmgy@9999",
+  "invalidusername": "rmgyantraa",
+  "invalidpassword": "rmgy@99",
+  "baseUrl": "http://49.249.28.218:8098/",
+  "campaignName":"HH",
+  "targetSize":"22",
+  "campaignId":"CAM10967",
+  "expectedHeader": "Contacts",
+  "contactName":"HHH",
+  "organizationName":"testNew",
+  "contactTitle":"New",
+  "contactMobile":"5176509533",
+  "searchCampaign":"Campaign"
+  
+}
