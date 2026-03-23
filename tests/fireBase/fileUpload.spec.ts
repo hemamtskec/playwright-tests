@@ -23,7 +23,7 @@ test('File Upload Testing',async({page})=>{
 
     await page.click('#logo');
 
-    await page.setInputFiles('input[type="file"]', 'C:/Softwares/playwright_folder/tests/utils/flower.jpg');
+    await page.setInputFiles('input[type="file"]', '/utils/flower.jpg');
     await expect(page.locator('#logo')).toHaveValue(/flower.jpg/);
    // await page.click('button[type="submit"]');
    //C:\Softwares\playwright_folder\tests\utils\flower.jpg
