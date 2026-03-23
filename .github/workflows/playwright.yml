@@ -24,8 +24,8 @@ jobs:
       run: npx playwright test
        env:
       BASE_URL: http://49.249.28.218:8098
-      USERNAME: ${{ secrets.USERNAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
+      USERNAME: ${{ secrets.CRM_USERNAME }}
+      PASSWORD: ${{ secrets.CRM_PASSWORD }}
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
