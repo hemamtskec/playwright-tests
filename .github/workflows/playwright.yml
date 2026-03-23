@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BASE_URL: ${{ secrets.BASE_URL }}
-      USERNAME: ${{ secrets.CRM_USERNAME }}
-      PASSWORD: ${{ secrets.CRM_PASSWORD }}
+      CRM_USERNAME: ${{ secrets.CRM_USERNAME }}
+      CRM_PASSWORD: ${{ secrets.CRM_PASSWORD }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -26,7 +26,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-      
+
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
