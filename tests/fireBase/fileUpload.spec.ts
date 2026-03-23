@@ -1,4 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
+import path from 'path';
 
 test('File Upload Testing',async({page})=>{
     //Launch Application
@@ -22,8 +23,8 @@ test('File Upload Testing',async({page})=>{
     //Click Upload
 
     await page.click('#logo');
-
-    await page.setInputFiles('input[type="file"]', '/utils/flower.jpg');
+    const filePath = path.join(__dirname, '../utils/flower.jpg');
+    await page.setInputFiles('input[type="file"]', filePath);
     await expect(page.locator('#logo')).toHaveValue(/flower.jpg/);
    // await page.click('button[type="submit"]');
    //C:\Softwares\playwright_folder\tests\utils\flower.jpg
