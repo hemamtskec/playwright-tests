@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+     
         ALLURE_RESULTS = 'allure-results'
         ALLURE_REPORT = 'allure-report'
     }
@@ -23,17 +24,19 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                
-                bat """
-                set BASE_URL=%base-url%
-                set CRM_USERNAME=%PIPE_CRM_USERNAME%
-                set CRM_PASSWORD=%PIPE_CRM_PASS%
+                withCredentials([
+                    string(credentialsId: 'base-url', variable: 'BASE_URL'),
+                    string(credentialsId: 'PIPE_CRM_USERNAME', variable: 'CRM_USERNAME'),
+                    string(credentialsId: 'PIPE_CRM_PASS', variable: 'CRM_PASSWORD')
+                ]) {
 
-                echo BASE_URL=%BASE_URL%
-                echo USERNAME=%APP_CREDS_USR%
+                    bat """
+                    echo BASE_URL=%BASE_URL%
+                    echo USERNAME=%CRM_USERNAME%
 
-                npx playwright test
-                """
+                    npx playwright test
+                    """
+                }
             }
         }
 
