@@ -55,6 +55,16 @@ pipeline {
     post {
         always {
 
+            // ✅ Playwright HTML Report
+            publishHTML([
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: true
+            ])
+
             // ✅ Publish Allure HTML report
             publishHTML([
                 reportDir: 'allure-report',
