@@ -4,12 +4,7 @@ pipeline {
     tools {
         allure 'allure'   //this links Jenkins tool
     }
-    environment {
-     
-       // ALLURE_RESULTS = 'allure-results'
-      //  ALLURE_REPORT = 'allure-report'
-    }
-
+    
     stages {
 
         stage('Checkout') {
