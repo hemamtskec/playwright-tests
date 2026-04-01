@@ -25,7 +25,7 @@ pipeline {
             steps {
                 
                 bat """
-                set BASE_URL=%BASE_URL%
+                set BASE_URL=%base-url%
                 set CRM_USERNAME=%PIPE_CRM_USERNAME%
                 set CRM_PASSWORD=%PIPE_CRM_PASS%
 
