@@ -1,10 +1,13 @@
 pipeline {
     agent any
 
+    tools {
+        allure 'allure'   //this links Jenkins tool
+    }
     environment {
      
-        ALLURE_RESULTS = 'allure-results'
-        ALLURE_REPORT = 'allure-report'
+       // ALLURE_RESULTS = 'allure-results'
+      //  ALLURE_REPORT = 'allure-report'
     }
 
     stages {
@@ -42,7 +45,7 @@ pipeline {
 
         stage('Generate Allure Report') {
             steps {
-                bat "allure generate %ALLURE_RESULTS% --clean -o %ALLURE_REPORT%"
+                bat "allure generate allure-results --clean -o allure-report"
             }
         }
 
