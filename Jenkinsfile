@@ -23,7 +23,17 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'npx playwright test'
+                
+                bat """
+                set BASE_URL=%BASE_URL%
+                set CRM_USERNAME=%PIPE_CRM_USERNAME%
+                set CRM_PASSWORD=%PIPE_CRM_PASS%
+
+                echo BASE_URL=%BASE_URL%
+                echo USERNAME=%APP_CREDS_USR%
+
+                npx playwright test
+                """
             }
         }
 
