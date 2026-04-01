@@ -62,7 +62,7 @@ pipeline {
                 reportName: 'Playwright Report',
                 keepAll: true,
                 alwaysLinkToLastBuild: true,
-                allowMissing: true
+                allowMissing: false
             ])
 
             // ✅ Publish Allure HTML report
